@@ -624,7 +624,6 @@ jobs:
           export SUBARCH=arm64
           export LLVM=1
           export LLVM_IAS=1
-
           if [[ "${{ inputs.enable_gcc }}" == "true" ]]; then
 
             export CROSS_COMPILE=aarch64-linux-gnu-
@@ -638,6 +637,10 @@ jobs:
           fi
 
           cd ${{ inputs.soc }} || exit 1
+          curl -O https://raw.githubusercontent.com/mingmingzhichu/build/refs/heads/main/lin.diff && patch -p1 < lin.diff
+          echo "CONFIG_KSU_MANUAL_HOOK_AUTO_SETUID_HOOK =y" >> arch/arm64/configs/${configs_list[0]}
+          echo "CONFIG_KALLSYMS_ALL=y" >> arch/arm64/configs/${configs_list[0]}
+
           set -o pipefail
           make -j$(nproc) O=out Image 2>&1 | tee ${GITHUB_WORKSPACE}/build.log
 
