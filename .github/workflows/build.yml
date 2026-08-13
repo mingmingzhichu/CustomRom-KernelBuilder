@@ -24,7 +24,7 @@ on:
         description: "SOC: Type your soc"
         required: true
         type: string
-        default: "sm8550"
+        default: "sm8150"
 
       clang_version:
         description: "Clang-Version: Select the clang version of ur kernel"
@@ -86,7 +86,7 @@ on:
         description: "Kernel-Configs: Select ur kernel configs(Use Manual-Type to custom it)"
         required: true
         type: choice
-        default: oplus-sm8550-los
+        default: oplus-sm8150-los
         options:
           - Manual-Type
           - oplus-sdm845-los
@@ -108,7 +108,7 @@ on:
         description: "KSU: KernelSU Version"
         required: true
         type: choice
-        default: None
+        default: ReSukiSU
         options:
           - None
           - Official-KernelSU
@@ -165,7 +165,7 @@ on:
         description: "Has-Modules-Repo: Enable this ur kernel has modules repo(mostly for gki 2.0)"
         required: true
         type: boolean
-        default: true
+        default: false
 
       enable_tmpfs-xattr:
         description: "TMPFS_XATTR: U can enable this if ur kernel has no CONFIG_TMPFS_XATTR=y"
