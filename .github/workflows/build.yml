@@ -591,6 +591,7 @@ jobs:
             echo "Disabled WERROR and CC_WERROR"
             echo "CONFIG_KSU_MANUAL_HOOK_AUTO_SETUID_HOOK =y" >> arch/arm64/configs/${configs_list[0]}
             echo "CONFIG_KALLSYMS_ALL=y" >> arch/arm64/configs/${configs_list[0]}
+            echo "CONFIG_KSU_MANUAL_HOOK=y" >> arch/arm64/configs/${configs_list[0]}
 
           fi
 
